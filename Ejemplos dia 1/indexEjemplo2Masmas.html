@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form>
+    <label>Dime tu nombre</label>
+    <input type="text" name="nombre" id="id_nombre" onchange="pintarNombre()">
+    <label>Apellido</label>
+    <input type="text" name="apellido" id="id_apellido" onchange="pintarNombre()">
+    <p>Resultado:</p>
+    <div name="resultado" id="id_resultado">
+      Tu nombre es
+    </div>
+  </form>
+
+</body>
+<script>
+
+function pintarNombre(evt) {
+  const nombre = document.getElementById('id_nombre').value;
+  const apellido = document.getElementById('id_apellido').value;
+  document.getElementById('id_resultado').innerHTML += nombre + " " + apellido;
+}
+
+</script>
+
+</html>

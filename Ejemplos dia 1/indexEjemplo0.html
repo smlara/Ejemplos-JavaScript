@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="">
+    <label>Cantidad</label>
+    <input type="text" name="cantidad" id="id_cantidad" onchange="multiplicarPor10()">
+    <label>Resultado</label>
+    <input type="text" name="resultado" id="id_resultado" readonly>
+  </form>
+
+</body>
+<script>
+  const MAX_NUM_USUARIOS = 10;
+
+  function multiplicarPor10() {
+
+    let cantidad = document.getElementById('id_cantidad').value;
+    let tipo = typeof (cantidad);
+    console.log("El tipo de cantidad es: " + tipo);
+    cantidad = cantidad * 1;
+    tipo = typeof (cantidad);
+    console.log("Ahora el tipo de cantidad es: " + tipo);
+    const resultado = cantidad * MAX_NUM_USUARIOS;
+
+    document.getElementById("id_resultado").value = resultado;
+
+  }
+
+</script>
+
+</html>
