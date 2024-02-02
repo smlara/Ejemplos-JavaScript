@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <label>Dime un número</label>
+  <input type="text" name="numero" id="id_numero" onchange="mostrarNumero()">
+  <!-- <label>Resultado</label>
+  <input name="resultado" id="id_resultado" readonly> -->
+
+</body>
+<script>
+    const FACTOR = 10;
+
+  function multplicar(a, b = FACTOR) {
+
+
+    return a * b;
+  }
+
+  function mostrarNumero(evt) {
+    const numero = document.getElementById('id_numero').value * 1;
+    console.log("numero: " + numero);
+
+    if (isNaN(numero)) {
+      console.log("No es un número");
+
+    }
+    else {
+
+      for (let i = 1; i <= 10; i++) {
+        console.log(numero + " x " + i + " = " + multplicar(i, numero));
+      }
+    }
+
+
+  }
+
+
+
+</script>
+
+</html>
