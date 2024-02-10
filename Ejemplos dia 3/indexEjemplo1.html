@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form>
+    <label>Dime tu edad</label>
+    <input type="number" name="edad" id="id_edad" onchange="checkPermisos()">
+
+  </form>
+
+</body>
+<script>
+  const MAYORIA_EDAD = 18;
+
+  function checkPermisos(evt) {
+    const edad = document.getElementById('id_edad').value;
+
+    const permisos = checkAge(edad);
+
+    if (permisos) {
+      alert('Puedes pasar');
+
+    } else {
+      alert('No puedes pasar');
+    }
+
+  }
+
+  /** 
+   * Función que comprueba si el usuario es mayor de edad
+   * @param {number} edad - Edad del usuario
+   * @returns {boolean} - Devuelve true si es mayor de edad o si es menor de edad y tiene permiso de sus padres
+   */
+  function checkAge(edad) {
+
+    let resultado = false;
+
+    if (edad >= MAYORIA_EDAD) {
+      resultado = true;
+    } else {
+      resultado = confirm('¿Tienes permiso de tus padres?');
+    }
+
+    return resultado;
+  }
+</script>
+
+</html>
