@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+  const CONSTANTEKAPREKAR = 6174;
+  const ERROR = -1;
+
+  function kaprekar(numero) {
+    numero = numero.toString();
+
+    let numeroOrdenado = numero.split('').sort().join('');
+    let numeroOrdenadoInverso = numero.split('').sort().reverse().join('');
+
+    let resultado = numeroOrdenadoInverso - numeroOrdenado;
+
+    if (isNaN(resultado) || resultado == 0) {
+      return ERROR;
+    }
+
+    // ME ASEGURO QUE TIENE 4 DIGITOS
+    numero = resultado.toString();
+    while (numero.length < 4) {
+      numero = '0' + numero;
+    }
+    return (numero);
+  }
+
+  function calcularVecesKaprekar(numero) {
+    let numeroInt = parseInt(numero);
+    if (isNaN(numeroInt)) {
+      console.log('No es un número');
+      return ERROR;
+    }
+
+    while (numero.length < 4) {
+      numero = '0' + numero;
+    }
+
+    if (numero.length != 4) {
+      console.log('El número debe tener 4 dígitos');
+      return ERROR;
+    }
+
+
+    let intentos = 0;
+    while (numero != CONSTANTEKAPREKAR) {
+      resultado = kaprekar(numero);
+      if (resultado == ERROR) {
+        console.log('No se puede realizar la operación con ese número');
+        return ERROR;
+      }
+      console.log(`Calculando kaprekar del numero ${numero} -> ${resultado}`);
+      numero = resultado;
+      intentos++;
+
+
+    }
+    return intentos;
+  }
+
+
+  let numero = prompt('Introduce un número');
+  intentos = calcularVecesKaprekar(numero);
+  if (intentos == ERROR) {
+    console.log('Ha habido un error');
+  }
+  else {
+    console.log(`El número de intentos ha sido ${intentos}`);
+  }
+
+
+</script>
+
+</html>
