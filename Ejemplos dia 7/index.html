@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <form action="/dasdasdad">
+    <diV>
+      <label for="id_nombre">Nombre</label>
+      <input type="text" name="nombre" id="id_nombre" required>
+    </diV>
+    <diV>
+      <label for="id_apellidos">Apellidos</label>
+      <input type="text" name="apellidos" id="id_apellidos" required>
+    </diV>
+    <diV>
+      <label for="id_edad">Edad</label>
+      <input type="number" name="edad" id="id_edad" required>
+    </diV>
+    <diV>
+      <label for="id_email">Email</label>
+      <input type="text" name="email" id="id_email" required>
+    </diV>
+    <diV>
+      <label for="id_telefono">Telefono</label>
+      <input type="text" name="telefono" id="id_telefono">
+    </diV>
+
+    <div>
+      <label for="id_etiqueta">Sexo</label>
+
+      <select name="sexo" id="id_sexo" onchange="selecionSexo()">
+        <option value=""></option>
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+      </select>
+    </div>
+    <div style="display: none;" id="id_select_profesion_hombre">
+      <label for="id_etiqueta">Dime tu profesion masculina</label>
+      <select name="profesion" id="id_profesion">
+        <option value="policia">Policía</option>
+        <option value="bombero">Bombero</option>
+        <option value="albañil">Albañil</option>
+      </select>
+    </div>
+    <div style="display: none;" id="id_select_profesion_mujer">
+      <label for="id_etiqueta">Dime tu profesion femenina</label>
+      <select name="profesion" id="id_profesion">
+        <option value="programadora">Programadora</option>
+        <option value="cientifica">Cientifica</option>
+        <option value="astronauta">Astronauta</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit" onclick="validaCampos()">Enviar</button>
+    </div>
+
+  </form>
+  <div id = "id_mensajes">
+
+  </div>
+  <script>
+    function selecionSexo() {
+      const sexo = document.getElementById("id_sexo").value;
+      document.getElementById("id_select_profesion_hombre").style.display = "none";
+      document.getElementById("id_select_profesion_mujer").style.display = "none";
+      if (sexo === "hombre") {
+        document.getElementById("id_select_profesion_hombre").style.display = "block";
+      }
+      if (sexo === "mujer") {
+        document.getElementById("id_select_profesion_mujer").style.display = "block";
+      }
+
+    }
+
+    function validaCampos() {
+     
+      let nombre = document.getElementById("id_nombre").value.toUpperCase();
+      document.getElementById("id_nombre").value = nombre;
+      const apellidos = document.getElementById("id_apellidos").value;
+      const edad = document.getElementById("id_edad").value;
+      const email = document.getElementById("id_email").value;
+      const telefono = document.getElementById("id_telefono").value;
+      const sexo = document.getElementById("id_sexo").value;
+      const profesion = document.getElementById("id_profesion").value;
+
+      if (edad < 18)
+      {
+        document.getElementById("id_mensajes").innerHTML = "Eres menor de edad";
+        document.getElementById("id_mensajes").style.color = "white";
+        document.getElementById("id_mensajes").style.backgroundColor = "red";
+        event.preventDefault();
+      }
+
+  
+      // if (nombre === "" || apellidos === "" || edad === "" || email === "" || telefono === "" || sexo === "" || profesion === "") {
+      //   alert("Faltan campos por rellenar");
+      // } else {
+      //   alert("Formulario enviado");
+      // }
+    }
+
+  </script>
+</body>
+
+</html>
