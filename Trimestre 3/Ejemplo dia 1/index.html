@@ -111,7 +111,7 @@
         <form>
             <h2>Formulario</h2>
             <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" class="item" required>
 
             <label for="age">Edad:</label>
             <input type="number" id="age" name="age" min="0" required>
@@ -144,40 +144,51 @@
 
         // para cada elemento ejecuta alert
         // const a = ["Bilbo", "Gandalf", "Nazgul"];
-        const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-        // a.forEach(item => console.log(item + 10));
-        console.log('Sin index');
-        a.forEach(
-            function (item) {
-                console.log(item + 10);
-                // console.log(item, index);
-            });
+        // // a.forEach(item => console.log(item + 10));
+        // console.log('Sin index');
+        // a.forEach(
+        //     function (item) {
+        //         console.log(item + 10);
+        //         // console.log(item, index);
+        //     });
 
-        console.log('Con index');
-        a.forEach(
-            function (item, index) {
-                console.log(`He sumado 10 al indice ${index} y es igual a ${item + 10}`);
-                // console.log(item, index);
-            });
+        // console.log('Con index');
+        // a.forEach(
+        //     function (item, index) {
+        //         console.log(`He sumado 10 al indice ${index} y es igual a ${item + 10}`);
+        //         // console.log(item, index);
+        //     });
 
-        console.log('Con el array tambien');
-        a.forEach(
-            function (item, index) {
-                console.log(`He sumado 10 al indice ${index} y es igual a ${item + 10} al array ${a}`);
-                // console.log(item, index);
-            });
+        // console.log('Con el array tambien');
+        // a.forEach(
+        //     function (item, index) {
+        //         console.log(`He sumado 10 al indice ${index} y es igual a ${item + 10} al array ${a}`);
+        //         // console.log(item, index);
+        //     });
 
-        console.log('USANDO LA FUNCION FLECHA');
-        a.forEach((item, index) => {
-            console.log(`He sumado 10 al indice ${index} y es igual a ${item + 10} al array ${a}`);
-            // console.log(item, index);
-        });
+        // console.log('USANDO LA FUNCION FLECHA');
+        // a.forEach((item, index) => {
+        //     console.log(`He sumado 10 al indice ${index} y es igual a ${item + 10} al array ${a}`);
+        //     // console.log(item, index);
+        // });
 
-        console.log('USANDO LA FUNCION FLECHA con un solo parametro');
-        a.forEach(item => console.log(`He sumado 10 y es igual a ${item + 10}`));
+        // console.log('USANDO LA FUNCION FLECHA con un solo parametro');
+        // a.forEach(item => console.log(`He sumado 10 y es igual a ${item + 10}`));
 
 
+        let contenedor = document.getElementById('container');
+
+        contenedor.style.backgroundColor = 'red';
+        // let container = "Casa";
+        // container.style.backgroundColor = 'blue'; // NO USAR NUNCA
+
+        let lista = document.getElementsByTagName('li');
+        let lista2 = document.getElementsByClassName('item');
+
+        console.log(lista);
+        console.log(lista2);
 
 
     </script>
